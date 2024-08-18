@@ -1,9 +1,11 @@
 <h2>My Notes</h2>
 <a class="btn btn-add" routerLink="/add">+ Add</a>
-@for (note of notes; track note.id){
+@if (notes == null){
+<p>Loading notes...</p>
+} @else { @for (note of notes; track note.id){
 <div [routerLink]="['/edit', note.id]" class="note">
   <h3>{{ note.title }}</h3>
   <p>{{ note.description }}</p>
   <button class="btn btn-delete" (click)="deleteNote(note.id)"></button>
 </div>
-}
+} }

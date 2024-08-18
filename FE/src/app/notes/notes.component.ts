@@ -11,9 +11,19 @@ import { Note } from '../interfaces/note';
   styleUrl: './notes.component.scss',
 })
 export class NotesComponent {
-  notes: Note[];
+  notes?: Note[];
   constructor(private noteService: NoteServiceService) {
-    this.notes = this.noteService.notes;
+    this.noteService.getNotes().subscribe({
+      next: (data) => {
+        this.notes = data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+      complete: () => {
+        console.log('Retrieved notes');
+      },
+    });
   }
 
   deleteNote(id: number | undefined): void {

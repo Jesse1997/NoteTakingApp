@@ -1,37 +1,46 @@
 {
-  "hash": "3c5509d0",
-  "configHash": "555d27df",
+  "hash": "35eb79f7",
+  "configHash": "fc04581c",
   "lockfileHash": "141a3b9b",
-  "browserHash": "e5257e35",
+  "browserHash": "594d26f7",
   "optimized": {
+    "@angular/common/http": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "de77e2b5",
+      "needsInterop": false
+    },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "fb6a76ae",
-      "needsInterop": false
-    },
-    "@angular/platform-browser": {
-      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
-      "file": "@angular_platform-browser.js",
-      "fileHash": "12d1f697",
-      "needsInterop": false
-    },
-    "@angular/router": {
-      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
-      "file": "@angular_router.js",
-      "fileHash": "47a84243",
+      "fileHash": "978ea754",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "33900d24",
+      "fileHash": "1c74ca62",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "a9f3196e",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "495437d9",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-XAY6RX7H": {
-      "file": "chunk-XAY6RX7H.js"
+    "chunk-JUG4UWBD": {
+      "file": "chunk-JUG4UWBD.js"
+    },
+    "chunk-YUMCUWGT": {
+      "file": "chunk-YUMCUWGT.js"
     },
     "chunk-IBWA7O46": {
       "file": "chunk-IBWA7O46.js"

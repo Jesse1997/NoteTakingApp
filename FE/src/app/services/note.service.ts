@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Note } from '../interfaces/note';
+import { HttpClient } from '@angular/common/http';
+import { get } from 'http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NoteServiceService {
   // Should be API call later to retrieve notes
-  public notes: Note[] = [
-    { id: 1, title: 'Note 1', description: 'Description 1' },
-  ];
+  public notes: Note[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) {
+    this.getNotes().subscribe((notes) => {
+      this.notes = notes;
+    });
+  }
+
+  // Should be API call later to retrieve notes
+  getNotes(): Observable<Note[]> {
+    return this.http.get<Note[]>('notes');
+  }
 
   // Should be API call later to add note
   addNote(note: Note): void {

@@ -2,6 +2,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+const string corsAllowedPolicyName = "NoteTakingAppFE";
+
+builder.Services.AddCors(p => p.AddPolicy(corsAllowedPolicyName, builder =>
+{
+    builder.AllowAnyHeader()
+       .AllowAnyMethod()
+       .WithOrigins("http://localhost:4200");
+}));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -17,6 +26,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(corsAllowedPolicyName);
 
 app.UseAuthorization();
 
