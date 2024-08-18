@@ -1,1 +1,82 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Oswald;
+    src: url("assets/fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: Anton;
+    src: url("assets/fonts/AntonSC-Regular.ttf") format("truetype");
+}
+
+body {
+    background-color: azure;
+    font-family: 'Oswald';
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.btn {
+    font-family: 'Oswald';
+    transition-duration: 0.5s;
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: 700;
+    color: white;
+}
+
+.btn:hover {
+    transition-duration: 0.5s;
+}
+
+.btn-add {
+    background-color: #00b4d8;
+    border-color: #03045e;
+}
+
+.btn-add:hover {
+    background-color: #03045e;
+}
+
+.btn-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #ff005c;
+    border-color: black;
+}
+
+.btn-delete::before {
+    content: "X";
+}
+
+.btn-delete:hover {
+    background-color: rgb(163, 15, 44);
+}
+
+input, textarea, label {
+    font-family: 'Oswald';
+    padding: 5px 8px;
+    border: 2px solid white;
+    box-shadow: 2px 2px 2px #888;
+}
+
+label {
+    background-color: #00b4d8;
+    color: white;
+    font-weight: 700;
+}
+
+textarea {
+    min-height: 20px;
+    resize: vertical;
+}
+
+h2 {
+    text-align: center;
+    color: #03045e;
+  }
