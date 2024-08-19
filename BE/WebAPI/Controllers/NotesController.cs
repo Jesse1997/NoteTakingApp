@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.ObjectModel;
+using System.Text.Json;
 using WebAPI.Model;
 
 namespace WebAPI.Controllers
@@ -8,7 +9,9 @@ namespace WebAPI.Controllers
     [Route("[controller]")]
     public class NotesController : ControllerBase
     {
-        private static ICollection<Note> notes = new Collection<Note>();
+        private static ICollection<Note> notes = 
+            JsonSerializer.Deserialize<Collection<Note>>(System.IO.File.ReadAllText("db/data.json")) 
+            ?? new Collection<Note>();
 
         private readonly ILogger<NotesController> _logger;
 
@@ -28,6 +31,7 @@ namespace WebAPI.Controllers
         {
             note.Id = GenerateUniqueID();
             notes.Add(note);
+            SaveChanges();
             return CreatedAtAction(nameof(Get), new { id = note.Id }, note);
         }
 
@@ -42,6 +46,7 @@ namespace WebAPI.Controllers
 
             noteToUpdate.Title = note.Title;
             noteToUpdate.Description = note.Description;
+            SaveChanges();
             return Ok(noteToUpdate);
         }
 
@@ -55,6 +60,7 @@ namespace WebAPI.Controllers
             }
 
             notes.Remove(noteToDelete);
+            SaveChanges();
             return Ok();
         }
 
@@ -79,6 +85,12 @@ namespace WebAPI.Controllers
                 id = random.Next(int.MaxValue);
             }
             return id;
+        }
+
+        private void SaveChanges()
+        {
+            string json = JsonSerializer.Serialize(notes);
+            System.IO.File.WriteAllText("db/data.json", json);
         }
     }
 }
