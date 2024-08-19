@@ -6,6 +6,6 @@
 <div [routerLink]="['/edit', note.id]" class="note">
   <h3>{{ note.title }}</h3>
   <p>{{ note.description }}</p>
-  <button class="btn btn-delete" (click)="deleteNote(note.id)"></button>
+  <button class="btn btn-delete" (click)="deleteNote($event, note.id)"></button>
 </div>
 } }

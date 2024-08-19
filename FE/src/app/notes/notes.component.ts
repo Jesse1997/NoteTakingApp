@@ -13,6 +13,27 @@ import { Note } from '../interfaces/note';
 export class NotesComponent {
   notes?: Note[];
   constructor(private noteService: NoteServiceService) {
+    this.getNotes();
+  }
+
+  deleteNote(e: Event, id: number | undefined): void {
+    e.stopPropagation();
+
+    if (id === undefined) {
+      alert('Note cannot be deleted... Refresh the page and try again');
+      return;
+    }
+    this.noteService.deleteNote(id).subscribe({
+      error: () => {
+        alert('An error occurred while deleting note');
+      },
+      complete: () => {
+        this.getNotes();
+      },
+    });
+  }
+
+  getNotes(): void {
     this.noteService.getNotes().subscribe({
       next: (data) => {
         this.notes = data;
@@ -24,14 +45,5 @@ export class NotesComponent {
         console.log('Retrieved notes');
       },
     });
-  }
-
-  deleteNote(id: number | undefined): void {
-    if (id === undefined) {
-      alert('Note cannot be deleted... Refresh the page and try again');
-      return;
-    }
-    this.noteService.deleteNote(id);
-    this.notes = this.noteService.notes;
   }
 }

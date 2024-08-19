@@ -31,11 +31,19 @@ export class AddNoteComponent {
       alert('Please fill in the required fields');
       return;
     }
-    this.noteService.addNote({
-      title: this.noteForm.value.title ?? 'No title',
-      description: this.noteForm.value.description ?? 'No description',
-    });
-
-    this.router.navigate(['/']);
+    this.noteService
+      .addNote({
+        title: this.noteForm.value.title ?? 'No title',
+        description: this.noteForm.value.description ?? 'No description',
+      })
+      .subscribe({
+        error: () => {
+          alert('An error occurred while adding note');
+        },
+        complete: () => {
+          console.log('Note added');
+          this.router.navigate(['/']);
+        },
+      });
   }
 }
