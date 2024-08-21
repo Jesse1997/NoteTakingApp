@@ -5,13 +5,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { NoteServiceService } from '../services/note.service';
+import { NoteService } from '../services/note.service';
 import { Router } from '@angular/router';
+import { UploadFileComponent } from '../upload-file/upload-file.component';
 
 @Component({
   selector: 'app-add-note',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, UploadFileComponent],
   templateUrl: './add-note.component.html',
   styleUrl: './add-note.component.scss',
 })
@@ -21,10 +22,7 @@ export class AddNoteComponent {
     description: new FormControl('', Validators.required),
   });
 
-  constructor(
-    private noteService: NoteServiceService,
-    private router: Router
-  ) {}
+  constructor(private noteService: NoteService, private router: Router) {}
 
   onSubmit(): void {
     if (this.noteForm.invalid) {

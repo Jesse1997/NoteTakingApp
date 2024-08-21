@@ -5,7 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { NoteServiceService } from '../services/note.service';
+import { NoteService } from '../services/note.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -24,7 +24,7 @@ export class EditNoteComponent {
   });
 
   constructor(
-    private noteService: NoteServiceService,
+    private noteService: NoteService,
     private route: ActivatedRoute,
     private router: Router
   ) {

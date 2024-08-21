@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Note } from '../interfaces/note';
 import { HttpClient } from '@angular/common/http';
-import { get } from 'http';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NoteServiceService {
+export class NoteService {
   public notes: Note[] = [];
 
   constructor(private http: HttpClient) {

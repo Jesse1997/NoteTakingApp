@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NoteServiceService } from '../services/note.service';
+import { NoteService } from '../services/note.service';
 import { Note } from '../interfaces/note';
 
 @Component({
@@ -12,7 +12,7 @@ import { Note } from '../interfaces/note';
 })
 export class NotesComponent {
   notes?: Note[];
-  constructor(private noteService: NoteServiceService) {
+  constructor(private noteService: NoteService) {
     this.getNotes();
   }
 
